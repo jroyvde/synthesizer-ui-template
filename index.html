@@ -12,6 +12,8 @@
 
   <!-- Import our CSS stylesheets -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="keyboard.css">
+  <link rel="stylesheet" href="range.css">
 
   <!-- Import our JS files -->
   <!-- As these reference to DOM elements, we want to load them after it has loaded, so we use the defer property -->
@@ -46,6 +48,8 @@
       <p>This synthesizer will make some noise, please check your system's volume setting.</p>
       <button id="dialogCloseButton" autofocus>OK</button>
     </dialog>
+
+    <input type="range" class="slider" id="frequencySlider" min="0" max="20000" value="440" step="1">
 
     <!-- Keyboard Controller -->
     <div class="keyboardCont">
