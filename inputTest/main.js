@@ -1,10 +1,33 @@
+let bodyElement = document.body;
+let myButton = document.getElementById("exampleButton");
+
+function changeBodyBackgroundColor() {
+  bodyElement.style.backgroundColor = "#D0D0F0";
+}
+
+function playSynthNote(e) {
+  console.log(e);
+  let note = "c3";
+  polySynth.triggerAttackRelease(note, "8n");
+}
+
+myButton.addEventListener("click", (e) => {
+  playSynthNote(e);
+  checkWindowWidth(e);
+});
+
+function checkWindowWidth() {
+  let windowWidth = window.innerWidth;
+  buttonOutputText.textContent = windowWidth;
+}
+
 ///////////// Button
 
 let buttonOutputText = document.getElementById("buttonOutput");
 let buttonEventText = document.getElementById("currentButtonEvent");
 let heldButtonText = document.getElementById("buttonHeldEvent");
 
-/* 
+
 myButton.addEventListener("mouseenter", () => { 
   buttonEventText.textContent = "mouseenter";
 });
@@ -15,12 +38,14 @@ myButton.addEventListener("mouseleave", () => {
 
 myButton.addEventListener("mousedown", () => { 
   buttonEventText.textContent = "mousedown";
+  heldButtonText.textContent = "true";
 });
 
 myButton.addEventListener("mouseup", () => { 
   buttonEventText.textContent = "mouseup";
+  heldButtonText.textContent = "false";
 });
- */
+
 ///////////// Checkbox
 let myCheckbox = document.getElementById("exampleCheckbox");
 let checkboxOutputText = document.getElementById("checkboxOutput");
@@ -38,6 +63,11 @@ let verbCheckbox = document.getElementById("checkVerb");
 distCheckbox.addEventListener("click", (e) => {
   let isChecked = e.target.checked;
   toggleDistortion(isChecked);
+});
+
+verbCheckbox.addEventListener("click", (e) => {
+  let isChecked = e.target.checked;
+  toggleReverb(isChecked);
 });
 
 ///////////// Radio
